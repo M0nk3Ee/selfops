@@ -1,0 +1,17 @@
+Scripts used during testing
+
+In the infra lab environment the you can use this script as follows:
+- Checkout the selfops.automation folder to a linux box in the lab.
+- Install pyvmomi (sudo pip install pyvmomi)
+- Install netaddr (sudo pip install netaddr)
+- set the vsphere password in settings.py
+- Configure the various networks that VSphere knows about within settings.py (file is already configured for 10.3.0.0/24)
+
+
+Example usage
+
+Get information from Jira ticket - demos pulling in dummy fields
+sudo ./launch_vm.py jira-stage.dev.bbc.co.uk path/to/greenhouse.pem infra-1120 10.3.0.132
+
+Your VM template should have no virtual network adapters as these will be crated from scratch.
+any ifcfg-ethX files should also be removed from within the virtual machine so that the newly added int start at eth0 
